@@ -1,0 +1,22 @@
+<div class='span-24 last'>
+  <div class='span-24 last' id='links'>
+    <%= content_tag('h3', "Recent Links", :class => '') %>
+    <% @links.each do |link| %>
+      <%= link_to link.url.truncate(50), link_path(link) %><br/>
+    <% end %>
+  </div>
+  
+  <%= form_for :link, :url => {:controller => 'link'} do |f| %>
+    <p>
+      <%= f.label :url, "Url" %><br/>
+      <%= f.text_field :url %>
+    </p>
+    <p>
+      <%= f.label :user_agent, "User Agent" %><br/>
+      <%= select_tag "user_agent", options_from_collection_for_select(UserAgent.all, "id", "name")%>
+    </p>
+    <p>
+      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    </p>
+  <% end -%>
+</div>

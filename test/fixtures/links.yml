@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  url: MyString
+  hash: MyString
+  processed: false
+
+two:
+  url: MyString
+  hash: MyString
+  processed: false

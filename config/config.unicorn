@@ -1,0 +1,26 @@
+worker_processes 1
+listen '/tmp/unicorn.sock', :backlog => 256
+timeout 10
+pid "/tmp/unicorn.pid"
+
+# combine REE with "preload_app true" for memory savings
+# http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
+preload_app true
+GC.respond_to?(:copy_on_write_friendly=) and
+  GC.copy_on_write_friendly = true
+
+before_fork do |server,worker|
+  old_pid = '/tmp/unicorn.pid.oldbin'
+  if File.exists?(old_pid) && server.pid != old_pid
+    begin
+      Process.kill('QUIT', File.read(old_pid).to_i)
+    rescue Exception => e
+      
+    end
+  end
+end  
+
+after_fork do |server,worker|
+  addr = "127.0.0.1:#{9293 + worker.nr}"
+  server.listen(addr, :tries => -1, :delay => 5, :tcp_nopush => true)
+end

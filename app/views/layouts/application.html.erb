@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class='container'>
+  <div class='span-24 last'>
+    <%= link_to content_tag('h1', "Fetchit", :class => ''), root_path(), :style => 'text-decoration: none;' %>
+  </div>
+  <%= yield %>
+</div>
 
 </body>
 </html>

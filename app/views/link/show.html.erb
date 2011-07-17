@@ -1,0 +1,21 @@
+<div class='span-24 last'>
+  <%= content_tag('h3', @link.url.truncate(50), :class => '') %>
+  <%= content_tag('small', @link.url, :class => '') %>
+  <br/>
+  <hr/>
+  <div class='span-24 last'>
+    <%= @link.user_agent.name%>
+  </div>
+  <br/>
+  <hr/>
+  <div class='span-24 last'>
+    <% @headers.each do |header, value| %>
+      <%= content_tag('b', header, :class => '') %>: <%= value%><br/>
+    <% end %>
+  </div>
+  <br/>
+  <hr/>
+  <div class='span-24 last'>
+    <%= raw(@link.body) %>
+  </div>
+</div>

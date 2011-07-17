@@ -1,9 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc4'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+#gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 
@@ -15,15 +13,18 @@ gem 'uglifier'
 gem 'jquery-rails'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'capistrano'
 
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+## Application local
+gem 'resque', :require => 'resque/server'
+gem 'kaminari'
+gem 'nokogiri'
+gem 'httparty'
