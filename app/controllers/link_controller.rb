@@ -1,6 +1,6 @@
 class LinkController < ApplicationController
   def index
-    @links = Link.where(:processed => true)
+    @links = Link.order('updated_at DESC').page
   end
 
   def show

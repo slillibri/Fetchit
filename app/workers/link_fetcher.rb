@@ -6,7 +6,7 @@ class LinkFetcher
     
     begin
       ## Fetch link
-      result = HTTParty.get(link.url, {:user_agent => link.user_agent.name})
+      result = HTTParty.get(link.url, {:user_agent => link.user_agent.description})
       ## Parse headers/body
       link.headers = result.headers.to_hash
       

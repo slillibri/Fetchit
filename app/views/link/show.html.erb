@@ -1,21 +1,24 @@
 <div class='span-24 last'>
   <%= content_tag('h3', @link.url.truncate(50), :class => '') %>
-  <%= content_tag('small', @link.url, :class => '') %>
+  <%= content_tag('small', @link.url, :class => '') if @link.url.size > 50 %>
   <br/>
   <hr/>
   <div class='span-24 last'>
-    <%= @link.user_agent.name%>
+		<%= content_tag('h4', "User Agent", :class => '') %>
+    <%= @link.user_agent.name%>: <%= @link.user_agent.description %>
   </div>
   <br/>
   <hr/>
   <div class='span-24 last'>
+		<%= content_tag('h4', "Page Headers", :class => '') %>
     <% @headers.each do |header, value| %>
       <%= content_tag('b', header, :class => '') %>: <%= value%><br/>
     <% end %>
   </div>
   <br/>
   <hr/>
-  <div class='span-24 last'>
+	<%= content_tag('h4', "Page Content", :class => '') %>
+  <div class='span-24 last page_content'>
     <%= raw(@link.body) %>
   </div>
 </div>
