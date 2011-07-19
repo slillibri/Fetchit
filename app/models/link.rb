@@ -15,6 +15,9 @@ class Link < ActiveRecord::Base
         self.url = "http://" + uri.path
       else
         self.url = "http://" + uri.host
+        if uri.path.nil?
+          self.url = self.url + "/"
+        end
       end
     end
   end

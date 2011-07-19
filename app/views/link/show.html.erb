@@ -9,11 +9,15 @@
   </div>
   <br/>
   <hr/>
-  <div class='span-24 last'>
+  <div class='span-24 last page_content'>
 		<%= content_tag('h4', "Page Headers", :class => '') %>
-    <% @headers.each do |header, value| %>
-      <%= content_tag('b', header, :class => '') %>: <%= value%><br/>
-    <% end %>
+		<table>
+			<tr><th>Header</th><th>Value</th></tr>
+			<% @headers.each do |header, value| %>
+				<tr><td><%= content_tag('b', header, :class => '') %></td>
+					<td><%= value[0].to_s %></td></tr>
+			<% end %>
+		</table>
   </div>
   <br/>
   <hr/>

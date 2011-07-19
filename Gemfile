@@ -27,4 +27,3 @@ end
 gem 'resque', :require => 'resque/server'
 gem 'kaminari'
 gem 'nokogiri'
-gem 'httparty'
