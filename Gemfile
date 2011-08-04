@@ -4,7 +4,7 @@ gem 'rails', '3.1.0.rc4'
 #gem 'rails', '3.0.9'
 
 gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql'
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"
