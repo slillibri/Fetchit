@@ -1,7 +1,7 @@
 require 'net/http'
 
 class Fetcher
-  attr_accessor :link, :max_redirect, :response, :headers, :error, :body
+  attr_accessor :link, :max_redirect, :response_code, :headers, :error, :body
   
   def initialize(link, max_redirect = 5)
     self.link = link
