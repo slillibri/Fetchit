@@ -15,7 +15,7 @@
 			<tr><th>Header</th><th>Value</th></tr>
 			<% @headers.each do |header, value| %>
 				<tr><td><%= content_tag('b', header, :class => '') %></td>
-					<td><%= value[0].to_s %></td></tr>
+					<td><%= value %></td></tr>
 			<% end %>
 		</table>
   </div>
