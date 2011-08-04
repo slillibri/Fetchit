@@ -1,4 +1,5 @@
 require File.expand_path("#{Rails.root}/lib/fetcher")
+require File.expand_path("#{Rails.root}/lib/fetch_colorizer")
 
 class LinkFetcher
   @queue = :links_queue
@@ -16,7 +17,7 @@ class LinkFetcher
                               :error => fetcher.error, :headers => fetcher.headers, :processed => true )
 
     rescue Exception => e
-      link.update_attributes(:error => e.message, :processed => false)
+      link.update_attributes!(:error => e.message, :processed => false)
       raise e
     end
   end
