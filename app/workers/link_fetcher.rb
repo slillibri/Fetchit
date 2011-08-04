@@ -12,8 +12,9 @@ class LinkFetcher
       fetcher.fetch
 
       colors = FetchColorizer.new(fetcher.body)
-
-      link.update_attributes!(:body => colors.body, :response_code => fetcher.response_code,
+      colors.process
+      
+      link.update_attributes!(:body => colors.color, :response_code => fetcher.response_code,
                               :error => fetcher.error, :headers => fetcher.headers, :processed => true )
 
     rescue Exception => e
