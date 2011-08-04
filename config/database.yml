@@ -21,4 +21,4 @@ test:
 production:
   adapter: mysql
   database: fetchit
-  user: fetchit
+  username: fetchit
