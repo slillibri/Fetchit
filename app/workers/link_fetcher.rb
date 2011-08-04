@@ -1,4 +1,4 @@
-require File.expand_path('../lib/fetcher', __FILE__)
+require File.expand_path("#{Rails.root}/lib/fetcher")
 
 class LinkFetcher
   @queue = :links_queue
