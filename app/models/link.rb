@@ -15,17 +15,17 @@ class Link < ActiveRecord::Base
         self.url = "http://" + uri.path
       else
         self.url = "http://" + uri.host
-        if uri.path.nil?
-          self.url = self.url + "/"
-        end
+      end
+      if uri.path.empty?
+        self.url = self.url + "/"
       end
     end
   end
   
   def gen_key
-    if self.hash.nil?
+    if self.hashkey.nil?
       hasher = Digest::SHA2.new
-      self.hash = hasher.update(self.url).to_s
+      self.hashkey = hasher.update(self.url).to_s
     end
   end
 end
