@@ -2,6 +2,7 @@
 	<div class='span-24 last'>
 			Welcome <%= request.remote_ip %><br/>
 			<%= RateLimiter.current(request.remote_ip) %> -> <%= RateLimiter.ttl(request.remote_ip) %><br/>
+			<%= link_to "Resque Server", resque_server_path() %>
 	</div>
   <div class='span-24 last' id='links'>
     <%= paginate @links %>
