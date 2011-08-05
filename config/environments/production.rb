@@ -51,4 +51,8 @@ Fetchit::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  ## Rate limiting constants
+  RATE_LIMIT = 5
+  RATE_EXPIRE = 30
 end
