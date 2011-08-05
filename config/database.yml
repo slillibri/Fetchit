@@ -20,4 +20,4 @@ test:
 production:
   adapter: mysql
   database: fetchit
-  username: fetchit
+  user: fetchit
