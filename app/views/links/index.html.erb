@@ -1,27 +1,21 @@
 <div class='span-24 last'>
 	<div class='span-24 last'>
+		<% if ENV['RAILS_ENV'] == 'development' %>
 			Welcome <%= request.remote_ip %><br/>
 			<%= RateLimiter.current(request.remote_ip) %> -> <%= RateLimiter.ttl(request.remote_ip) %><br/>
 			<%= link_to "Resque Server", resque_server_path() %>
+		<% end %>
 	</div>
   <div class='span-24 last' id='links'>
     <%= paginate @links %>
     <%= content_tag('h3', "Recent Links", :class => '') %>
     <table>
       <tr><th>URL</th><th>Created</th><th>Updated</th><th>Processed?</th><th>Error?</th></tr>
-    <% @links.each do |link| %>
-      <tr>
-        <td><%= link_to link.url.truncate(50), link_path(link) %></td>
-        <td><%= distance_of_time_in_words(link.created_at, Time.now) %> ago</td>
-        <td><%= distance_of_time_in_words(link.updated_at, Time.now) %> ago</td>
-        <td><%= link.processed? ? 'Yes' : 'No' %></td>
-        <td><%= link.error.nil? ? 'No' : 'Yes' %></td>
-      </td>
-    <% end %>
+			<%= render @links %>
     </table>
   </div>
   
-  <%= form_for :link, :url => {:controller => 'link'} do |f| %>
+  <%= form_for :link do |f| %>
     <p>
       <%= f.label :url, "Url" %><br/>
       <%= f.text_field :url %>

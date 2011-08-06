@@ -1,9 +1,9 @@
 Fetchit::Application.routes.draw do
-  resources :link do
+  resources :links do
     get 'page/:page', :action => :index, :on => :collection
   end
   
-  root :to => 'link#index'
+  root :to => 'links#index'
   
   mount Resque::Server, :at => '/resque'
 end

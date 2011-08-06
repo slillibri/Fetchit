@@ -1,4 +1,4 @@
-class LinkController < ApplicationController
+class LinksController < ApplicationController
   def index
     @links = Link.order('updated_at DESC').page
   end
@@ -14,7 +14,7 @@ class LinkController < ApplicationController
       @link = Link.new(params[:link].merge(:processed => false, :user_agent => @ua))
       if @link.save
         Resque.enqueue(LinkFetcher, @link.id)
-        redirect_to link_path(@link)
+        redirect_to @link
       end    
     else
       flash[:error] = "You have exceeded the rate limit, please try again in a little bit"
