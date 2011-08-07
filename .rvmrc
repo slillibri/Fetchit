@@ -1,2 +1,2 @@
 rvm ruby-1.9.2-p290
-rvm gemset use fetchit
+rvm gemset use clean
