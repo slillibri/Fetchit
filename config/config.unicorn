@@ -1,13 +1,19 @@
-worker_processes 1
+if ENV['RAILS_ENV'] == 'development'
+  worker_processes 1
+else
+  worker_processes 4
+  working_directory = "/var/www/current"
+end
+
 listen '/tmp/unicorn.sock', :backlog => 256
 timeout 10
 pid "/tmp/unicorn.pid"
 
 # combine REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
-preload_app true
+# preload_app true
 GC.respond_to?(:copy_on_write_friendly=) and
-  GC.copy_on_write_friendly = true
+ GC.copy_on_write_friendly = true
 
 before_fork do |server,worker|
   old_pid = '/tmp/unicorn.pid.oldbin'
