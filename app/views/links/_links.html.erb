@@ -1,0 +1,13 @@
+<%= content_tag('h3', "Recent Links", :class => '') %>
+<div id='paginator'>
+	<%= paginate @links, :remote => true %>
+</div>
+
+<table>
+	<thead>
+  	<tr><th>URL</th><th>Created</th><th>Updated</th><th>Processed?</th><th>Error?</th></tr>
+	</thead>
+	<tbody id="link_table">
+		<%= render @links %>
+	</tbody>
+</table>

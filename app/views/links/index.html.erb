@@ -7,15 +7,10 @@
 		<% end %>
 	</div>
   <div class='span-24 last' id='links'>
-    <%= paginate @links %>
-    <%= content_tag('h3', "Recent Links", :class => '') %>
-    <table>
-      <tr><th>URL</th><th>Created</th><th>Updated</th><th>Processed?</th><th>Error?</th></tr>
-			<%= render @links %>
-    </table>
+		<%= render :partial => "links" %>
   </div>
   
-  <%= form_for :link do |f| %>
+  <%= form_for :link, :remote => true do |f| %>
     <p>
       <%= f.label :url, "Url" %><br/>
       <%= f.text_field :url %>
