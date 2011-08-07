@@ -12,11 +12,15 @@
   <div class='span-24 last page_content'>
 		<%= content_tag('h4', "Page Headers", :class => '') %>
 		<table>
-			<tr><th>Header</th><th>Value</th></tr>
-			<% @headers.each do |header, value| %>
-				<tr><td><%= content_tag('b', header, :class => '') %></td>
-					<td><%= value %></td></tr>
-			<% end %>
+			<thead>
+				<tr><th>Header</th><th>Value</th></tr>
+			</thead>
+			<tbody>
+				<% @headers.each do |header, value| %>
+					<tr><td><%= content_tag('b', header, :class => '') %></td>
+						<td><%= value %></td></tr>
+				<% end %>
+			</tbody>
 		</table>
   </div>
   <br/>
