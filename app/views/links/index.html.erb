@@ -10,7 +10,7 @@
 		<%= render :partial => "links" %>
   </div>
   
-  <%= form_for :link, :remote => true do |f| %>
+  <%= form_for :link, :html => {:id => 'link_form'}, :remote => true do |f| %>
     <p>
       <%= f.label :url, "Url" %><br/>
       <%= f.text_field :url %>

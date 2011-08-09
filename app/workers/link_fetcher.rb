@@ -1,6 +1,3 @@
-require File.expand_path("#{Rails.root}/lib/fetcher")
-require File.expand_path("#{Rails.root}/lib/fetch_colorizer")
-
 class LinkFetcher
   @queue = :links_queue
   
@@ -14,9 +11,13 @@ class LinkFetcher
       colors = FetchColorizer.new(fetcher.body)
       colors.process
       
-      link.update_attributes!(:body => colors.color, :response_code => fetcher.response_code,
-                              :error => fetcher.error, :headers => fetcher.headers, :processed => true )
-
+      link.update_attributes!(:body => fetcher.body, :response_code => fetcher.response_code,
+                              :color => colors.color, :error => fetcher.error,
+                              :headers => fetcher.headers, :processed => true )
+      
+      renderer = LinkRenderer.new(link)
+      renderer.render()
+      
     rescue Exception => e
       link.update_attributes!(:error => e.message, :processed => false)
       raise e
