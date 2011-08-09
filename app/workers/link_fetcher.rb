@@ -15,9 +15,6 @@ class LinkFetcher
                               :color => colors.color, :error => fetcher.error,
                               :headers => fetcher.headers, :processed => true )
       
-      renderer = LinkRenderer.new(link)
-      renderer.render()
-      
     rescue Exception => e
       link.update_attributes!(:error => e.message, :processed => false)
       raise e
