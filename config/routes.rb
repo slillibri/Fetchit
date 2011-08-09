@@ -1,5 +1,5 @@
 Fetchit::Application.routes.draw do
-  resources :links do
+  resources :links, :only => [:index, :create, :show] do
     get 'page/:page', :action => :index, :on => :collection
   end
   
