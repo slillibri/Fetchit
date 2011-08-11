@@ -25,6 +25,8 @@ Fetchit::Application.configure do
   # Do not compress assets
   config.assets.compress = false
   
+  config.middleware.delete(Rack::ETag)
+  
   ## constants for rate limiting
   RATE_LIMIT = 5
   RATE_EXPIRE = 30
