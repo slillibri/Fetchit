@@ -1,6 +1,8 @@
 This is a little Rails app to do asyncronous http/https requests and store the headers and body of the result
 
 TODO
-    Better layout
-    Users/Authentication/Something?
-    Clean up the User Agent list
+	Better layout
+	Users/Authentication/Something?
+	Clean up the User Agent list
+	Diff links from different user-agents
+	Custom Request Headers	
