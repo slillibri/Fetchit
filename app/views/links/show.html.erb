@@ -9,6 +9,14 @@
   </div>
   <br/>
   <hr/>
+  <div class='span-24 last'>
+    <% if @link.error %>
+      <%= content_tag('h4', "Errors", :class => '') %>
+      <%= @link.error %>
+    <% end %>
+  </div>
+  <br/>
+  <hr/>
   <div class='span-24 last page_content'>
 		<%= content_tag('h4', "Page Headers", :class => '') %>
 		<table>
