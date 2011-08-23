@@ -19,7 +19,7 @@ class Fetcher
         req = Net::HTTP::Get.new(uri.path)
         req["User-Agent"] = @link.user_agent.description
         res = Net::HTTP.new(uri.host, uri.port).start do |http|
-          http.read_timeout = 10
+          http.read_timeout = 30
           http.request(req)
         end
         if res.code == '200'

@@ -17,3 +17,5 @@ public/stylesheets/cache
 config/query_reviewer.yml
 *.rdb
 .sass-cache
+*#*
+*~
