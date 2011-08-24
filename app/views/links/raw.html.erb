@@ -34,8 +34,8 @@
   <br/>
   <hr/>
 	<%= content_tag('h4', "Page Content", :class => '') %>
-	<%= link_to "Raw body", link_raw_path(@link) %><br/>
+	<%= link_to "Colorized body", link_path(@link) %><br/>
   <div class='span-24 last page_content'>
-    <%= raw(@link.color) %>
+    <%= @link.body %>
   </div>
 </div>

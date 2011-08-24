@@ -27,4 +27,9 @@ class LinksController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def raw
+    @link = Link.find(params[:link_id])
+    @headers = @link.processed ? YAML.load(@link.headers) : {}
+  end
 end
